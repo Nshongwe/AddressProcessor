@@ -1,0 +1,5 @@
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Model\bin\Debug\Model.dll
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Model\bin\Debug\Model.pdb
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Model\obj\Debug\Model.dll
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Model\obj\Debug\Model.pdb

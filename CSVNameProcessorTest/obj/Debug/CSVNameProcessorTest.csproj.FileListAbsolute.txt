@@ -1,0 +1,6 @@
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessorTest\bin\Debug\CSVNameProcessorTest.dll
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessorTest\bin\Debug\CSVNameProcessorTest.pdb
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessorTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessorTest\obj\Debug\CSVNameProcessorTest.csprojResolveAssemblyReference.cache
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessorTest\obj\Debug\CSVNameProcessorTest.dll
+c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessorTest\obj\Debug\CSVNameProcessorTest.pdb
