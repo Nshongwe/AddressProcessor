@@ -10,3 +10,15 @@ c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNamePr
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessor\bin\Debug\SimpleInjector.xml
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessor\obj\Debug\CSVNameProcessor.exe
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessor\obj\Debug\CSVNameProcessor.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\CSVNameProcessor.exe.config
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\obj\Debug\CSVNameProcessor.exe
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\obj\Debug\CSVNameProcessor.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\CSVNameProcessor.exe
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\CSVNameProcessor.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\Model.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\Service.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\SimpleInjector.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\Model.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\Service.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\SimpleInjector.xml
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\obj\Debug\CSVNameProcessor.csprojResolveAssemblyReference.cache
