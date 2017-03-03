@@ -18,7 +18,7 @@ namespace CSVNameProcessor.ReadWriteHelpers
         public string outputFolder { get; set; }
         public void WriteToFile()
         {
-          // string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+           //string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             using (StreamWriter outputFile = new StreamWriter(outputFolder + FileName))
             {

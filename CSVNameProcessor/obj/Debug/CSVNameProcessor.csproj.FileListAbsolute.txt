@@ -21,4 +21,3 @@ C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\Sim
 C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\Model.pdb
 C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\Service.pdb
 C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\bin\Debug\SimpleInjector.xml
-C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessor\obj\Debug\CSVNameProcessor.csprojResolveAssemblyReference.cache

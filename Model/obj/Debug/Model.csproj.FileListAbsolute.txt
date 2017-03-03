@@ -3,3 +3,8 @@ c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Model\bin
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Model\obj\Debug\Model.dll
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Model\obj\Debug\Model.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Model\bin\Debug\Model.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Model\bin\Debug\Model.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Model\obj\Debug\Model.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Model\obj\Debug\Model.pdb

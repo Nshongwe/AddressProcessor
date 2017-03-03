@@ -95,6 +95,10 @@ namespace CSVNameProcessor
             var statsArrayList = ConvertToArrayList(WordStats);
             writeOutput.lines = statsArrayList;
             writeOutput.WriteToFile();
+
+            writeOutput.FileName = "SortedAddress.txt";
+            writeOutput.lines = _address.ToArray();
+            writeOutput.WriteToFile();
         }
 
         private string[] ConvertToArrayList(List<WordStats> wordStats)

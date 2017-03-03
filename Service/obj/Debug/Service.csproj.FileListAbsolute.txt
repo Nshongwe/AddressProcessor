@@ -5,3 +5,10 @@ c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Service\o
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Service\obj\Debug\Service.pdb
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Service\bin\Debug\Model.dll
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\Service\bin\Debug\Model.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Service\bin\Debug\Service.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Service\bin\Debug\Service.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Service\bin\Debug\Model.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Service\bin\Debug\Model.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Service\obj\Debug\Service.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\Service\obj\Debug\Service.pdb

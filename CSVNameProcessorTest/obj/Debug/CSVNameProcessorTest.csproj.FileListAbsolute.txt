@@ -4,3 +4,20 @@ c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNamePr
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessorTest\obj\Debug\CSVNameProcessorTest.csprojResolveAssemblyReference.cache
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessorTest\obj\Debug\CSVNameProcessorTest.dll
 c:\users\samson\documents\visual studio 2015\Projects\CSVNameProcessor\CSVNameProcessorTest\obj\Debug\CSVNameProcessorTest.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\obj\Debug\CSVNameProcessorTest.csprojResolveAssemblyReference.cache
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\obj\Debug\CSVNameProcessorTest.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\obj\Debug\CSVNameProcessorTest.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\CSVNameProcessorTest.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\CSVNameProcessorTest.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\CSVNameProcessor.exe
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\NSubstitute.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\nunit.framework.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\Service.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\Model.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\SimpleInjector.dll
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\CSVNameProcessor.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\Service.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\NSubstitute.xml
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\nunit.framework.xml
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\Model.pdb
+C:\Users\Samson\Documents\GitHub\AddressProcessor\CSVNameProcessorTest\bin\Debug\SimpleInjector.xml
