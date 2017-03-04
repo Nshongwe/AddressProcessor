@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CSVNameProcessor;
 using CSVNameProcessor.ReadWriteHelpers;
 using NUnit.Framework;
 using Service;
 
 namespace CSVNameProcessorTest
 {
-    
-    public class ProcessWordStatsTest
+    public class ProcessAddressTest
     {
         private IReadExcel _readExcel;
         [SetUp]
@@ -21,21 +19,21 @@ namespace CSVNameProcessorTest
             _readExcel = StartUp.Container.GetInstance<IReadExcel>();
         }
 
+        
         [Test]
-        public void ProcessWordStatsTest_ShouldCalculateWordFrequency_SortResults()
+        public void ProcessAddressTestTest_ShouldSortResultsBasedOnStreetName()
         {
             //---------------Set up test pack-------------------
-            ProcessWordStats processWordStats = new ProcessWordStats();
-           processWordStats.AddressBooks = _readExcel.GetDataRows();
+
+            ProcessAddress processAddress = new ProcessAddress();
+            processAddress._addressBooks = _readExcel.GetDataRows();
             //---------------Assert Precondition----------------
 
             //---------------Execute Test ----------------------
-            processWordStats.CalculateStats();
+            processAddress.SortAddress();
             //---------------Test Result -----------------------
-            Assert.AreEqual(3, processWordStats.WordStats.Count);
-            StringAssert.AreEqualIgnoringCase("Sashen", processWordStats.WordStats[0].Word);
-            Assert.AreEqual(2, processWordStats.WordStats[0].Count);
-            StringAssert.AreEqualIgnoringCase("Naidoo", processWordStats.WordStats[1].Word);
+            StringAssert.AreEqualIgnoringCase("AgriSETA House 529 Belvedere Road Arcadia 0083", processAddress._address[0]);
+            StringAssert.AreEqualIgnoringCase("12th Floor Durban Bay House 333 Smith Street Durban", processAddress._address[1]);
 
         }
     }

@@ -13,16 +13,16 @@ namespace CSVNameProcessor
 {
     public interface IMainClass
     {
-        void ProcessWordOccurrence();
+        void ProcessWordFrequency();
         void LoadSettings();
         Settings Settings { get; set; }
         IReadExcel _readExcel { get; set; }
-        void GetDataRows();
+        void ReadDataRows();
         List<AddressBook> _addressBooks { get; set; }
         List<WordStats> WordStats { get; set; }
         List<string> _address { get; set; }
         void SortAddress();
-        void WriteOutput();
+        void WriteOutputToFile();
     }
 
     public class MainClass : IMainClass
@@ -59,7 +59,7 @@ namespace CSVNameProcessor
 
         }
 
-        public void GetDataRows()
+        public void ReadDataRows()
         {
             _readExcel.FileName = Settings.InputFile;
             _addressBooks = _readExcel.GetDataRows();
@@ -81,14 +81,14 @@ namespace CSVNameProcessor
             };
         }
 
-        public void ProcessWordOccurrence()
+        public void ProcessWordFrequency()
         {
-            _processWordStats._addressBooks = _addressBooks;
-            _processWordStats.calculateStats();
+            _processWordStats.AddressBooks = _addressBooks;
+            _processWordStats.CalculateStats();
             WordStats = _processWordStats.WordStats;
         }
 
-        public void WriteOutput()
+        public void WriteOutputToFile()
         {
             writeOutput.FileName = "Stats.txt";
             writeOutput.outputFolder = Settings.OutputFolder;

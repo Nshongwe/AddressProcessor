@@ -10,38 +10,36 @@ namespace CSVNameProcessor
 {
     class Program
     {
-        private static IReadExcel readExcel;
-        private static IMainClass mainClass;
+        private static IReadExcel _readExcel;
+        private static IMainClass _mainClass;
 
         private static void Main(string[] args)
         {
             try
             {
-                StartUp.Boot();
-                readExcel = StartUp.Container.GetInstance<IReadExcel>();
-                mainClass = StartUp.Container.GetInstance<IMainClass>();
-                mainClass.LoadSettings();
-                string inputfileLocation = mainClass.Settings.InputFile;
-                string outputFolder = mainClass.Settings.OutputFolder;
-                Console.WriteLine($"Please ensure you have the data file in this location {inputfileLocation}. You can also can the location in web config");
+                BootSystem();
+                _mainClass.LoadSettings();
+                string inputfileLocation = _mainClass.Settings.InputFile;
+                string outputFolder = _mainClass.Settings.OutputFolder;
+                Console.WriteLine($"Please ensure you have the data file in this location {inputfileLocation}, or change the location in web config");
                 Console.WriteLine();
-                Console.WriteLine($"The output files will be located at {outputFolder}. You can also change the location to your preferred one in the web config");
+                Console.WriteLine($"The output files will be located at {outputFolder} or You can change the location to your preferred one in the web config");
                 Console.WriteLine();
                 Console.WriteLine("Please press 1 to continue 0 to exit");
                 string userInput = Console.ReadLine();
 
                 if (userInput != null && userInput.Equals("1"))
                 {
-                    mainClass.GetDataRows();
-                    string sheetName = mainClass._readExcel.GetFirstSheetName;
+                    _mainClass.ReadDataRows();
+                    string sheetName = _mainClass._readExcel.GetFirstSheetName;
                     Console.WriteLine($"Sheet Name {sheetName}");
-                    string ColumnName = mainClass._readExcel.HeaderNames;
-                    Console.WriteLine($"Column Names {ColumnName}");
-                    PrintData(mainClass._addressBooks);
+                    string HeaderNames = _mainClass._readExcel.HeaderNames;
+                    Console.WriteLine($"Column Names {HeaderNames}");
+                    PrintDataToScreen(_mainClass._addressBooks);
                     Console.WriteLine("Reading.........");
-                    mainClass.ProcessWordOccurrence();
-                    mainClass.SortAddress();
-                    mainClass.WriteOutput();
+                    _mainClass.ProcessWordFrequency();
+                    _mainClass.SortAddress();
+                    _mainClass.WriteOutputToFile();
                     Console.WriteLine("Finished");
                     Console.ReadLine();
                 }
@@ -50,15 +48,24 @@ namespace CSVNameProcessor
                     Environment.Exit(0);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine("Oops Error occurred");
+                Console.WriteLine("Oops an Error occurred");
+                Console.WriteLine(ex.Message);
+                Console.ReadLine();
                 //Write exception to log
             }
         }
 
+        private static void BootSystem()
+        {
+            StartUp.Boot();
+            _readExcel = StartUp.Container.GetInstance<IReadExcel>();
+            _mainClass = StartUp.Container.GetInstance<IMainClass>();
+        }
 
-        private static void PrintData(List<AddressBook> _addressBooks)
+
+        private static void PrintDataToScreen(List<AddressBook> _addressBooks)
         {
             _addressBooks?.ForEach(delegate(AddressBook addressBook)
             {

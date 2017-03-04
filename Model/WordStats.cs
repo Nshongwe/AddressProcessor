@@ -13,7 +13,7 @@ namespace Model
 
         public override string ToString()
         {
-            return Word + " " + Count;
+            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Word) + "," + Count;
         }
     }
 }

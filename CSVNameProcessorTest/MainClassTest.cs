@@ -11,6 +11,7 @@ using CSVNameProcessor.ReadWriteHelpers;
 
 namespace CSVNameProcessorTest
 {
+    
     public class MainClassTest
     {
         [Test]

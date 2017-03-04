@@ -1,61 +1,56 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service
 {
     public interface IProcessWordStats
     {
-        List<AddressBook> _addressBooks { get; set; }
+        List<AddressBook> AddressBooks { get; set; }
         List<WordStats> WordStats { get; set; }
-        void calculateStats();
+        void CalculateStats();
     }
 
     public class ProcessWordStats : IProcessWordStats
     {
-        public List<AddressBook> _addressBooks { get; set; }
+        public List<AddressBook> AddressBooks { get; set; }
         public List<WordStats> WordStats { get; set; }
-        char[] delimiters = { ' ' };
+        char[] _delimiters = { ' ' };
 
-        public void calculateStats()
+        public void CalculateStats()
         {
             string allWords = GetAllWords();
-            string[] WordsList = SplitWords(allWords.ToLower());
-            Process(WordsList);
+            string[] wordsList = SplitWords(allWords.ToLower());
+            CalculateWordFrequency(wordsList);
             SortWordStats();
-
         }
 
         private void SortWordStats()
         {
              WordStats = WordStats.OrderByDescending(x => x.Count).ThenBy (x=>x.Word).ToList();
-           
         }
 
         private string GetAllWords()
         {
             string words = string.Empty;
-            _addressBooks?.ForEach(delegate(AddressBook addressBook)
+            AddressBooks?.ForEach(delegate(AddressBook addressBook)
             {
                 words += addressBook.FullName + " ";
             });
             return words;
         }
 
-        private string[] SplitWords(string allWords) =>  allWords.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+        private string[] SplitWords(string allWords) =>  allWords.Split(_delimiters, StringSplitOptions.RemoveEmptyEntries);
 
-        private void Process(string [] WordsList)
+        private void CalculateWordFrequency(string [] wordsList)
         {
             List<WordStats> stats = new List<WordStats>();
-            foreach (var word in WordsList)
+            foreach (var word in wordsList)
             {
                 if (stats?.FindAll(x => x.Word.Equals(word)).Count == 0)
                 {
-                    int count = WordsList.ToList().FindAll(x => x.Equals(word)).Count;
+                    int count = wordsList.ToList().FindAll(x => x.Equals(word)).Count;
                     stats.Add(new WordStats {Word=word,Count=count});
                 }
             }
