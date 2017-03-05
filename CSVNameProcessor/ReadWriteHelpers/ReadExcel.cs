@@ -24,8 +24,8 @@ namespace CSVNameProcessor.ReadWriteHelpers
         public string HeaderNames { get; set; }
         private string _connectionString;
         private DataTable _dataTable;
+        private string fileExt;
 
-       
         public List<AddressBook> GetDataRows()
         {
             CreateConnection();
@@ -45,6 +45,10 @@ namespace CSVNameProcessor.ReadWriteHelpers
                 if (_dataTable != null && _dataTable.Rows.Count > 0)
                 {
                     GetFirstSheetName = _dataTable.Rows[0]["TABLE_NAME"].ToString().Replace("'", "");
+                    if (string.Compare(fileExt, "csv", true) == 0)
+                    {
+                        GetFirstSheetName = "Address-Book.csv";
+                    }
                     PopulateHeadersColumnNames();
                 }
                 conn.Close();
@@ -89,6 +93,11 @@ namespace CSVNameProcessor.ReadWriteHelpers
                     conn.Open();
                 }
                 string selectCmd = string.Format("select * from [{0}]", GetFirstSheetName + "A" + "1" + ":Z" + "1");
+                if (string.Compare(fileExt, "csv", true) == 0)
+                {
+                    selectCmd = string.Format("select * from [{0}]", GetFirstSheetName);
+                }
+
                 var cmd = new OleDbCommand(selectCmd, conn);
                 var da = new OleDbDataAdapter(cmd);
 
@@ -105,7 +114,7 @@ namespace CSVNameProcessor.ReadWriteHelpers
         }
         private void CreateConnection()
         {
-            string fileExt = GetFileExtension();
+            fileExt = GetFileExtension();
             if (string.Compare(fileExt, "xls", true) == 0)
             {
                 _connectionString = string.Concat("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=", FileName, ";" + "Extended Properties='Excel 8.0;HDR=YES;'");
@@ -113,6 +122,11 @@ namespace CSVNameProcessor.ReadWriteHelpers
             else if (string.Compare(fileExt, "xlsx", true) == 0)
             {
                 _connectionString = string.Concat("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=", FileName, ";" + "Extended Properties='Excel 12.0 Xml;HDR=YES;'");
+            }
+            else if (string.Compare(fileExt, "csv", true) == 0)
+            {
+                string path = Path.GetDirectoryName(FileName);
+                _connectionString = string.Concat("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=", path, ";Extended Properties=\"Text;Excel 12.0;HDR=No;IMEX=1;FMT=Delimited\"");
             }
 
         }

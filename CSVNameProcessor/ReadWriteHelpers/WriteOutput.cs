@@ -13,13 +13,11 @@ namespace CSVNameProcessor.ReadWriteHelpers
 
     public class WriteOutput : IWriteOutput
     {
-        public  string[] lines { get; set; }
+        public string[] lines { get; set; }
         public string FileName { get; set; }
         public string outputFolder { get; set; }
         public void WriteToFile()
         {
-           //string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
             using (StreamWriter outputFile = new StreamWriter(outputFolder + FileName))
             {
                 foreach (string line in lines)

@@ -2,9 +2,6 @@
 using Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSVNameProcessor
 {
@@ -21,7 +18,7 @@ namespace CSVNameProcessor
                 _mainClass.LoadSettings();
                 string inputfileLocation = _mainClass.Settings.InputFile;
                 string outputFolder = _mainClass.Settings.OutputFolder;
-                Console.WriteLine($"Please ensure you have the data file in this location {inputfileLocation}, or change the location in web config");
+                Console.WriteLine($"Please ensure you have the data file and schema.ini in this location {inputfileLocation}, or change the location in web config");
                 Console.WriteLine();
                 Console.WriteLine($"The output files will be located at {outputFolder} or You can change the location to your preferred one in the web config");
                 Console.WriteLine();
@@ -51,7 +48,6 @@ namespace CSVNameProcessor
             catch (Exception ex)
             {
                 Console.WriteLine("Oops an Error occurred");
-                Console.WriteLine(ex.Message);
                 Console.ReadLine();
                 //Write exception to log
             }
@@ -65,9 +61,9 @@ namespace CSVNameProcessor
         }
 
 
-        private static void PrintDataToScreen(List<AddressBook> _addressBooks)
+        private static void PrintDataToScreen(List<AddressBook> addressBooks)
         {
-            _addressBooks?.ForEach(delegate(AddressBook addressBook)
+            addressBooks?.ForEach(delegate(AddressBook addressBook)
             {
                 Console.WriteLine(addressBook.ToString());
             });
