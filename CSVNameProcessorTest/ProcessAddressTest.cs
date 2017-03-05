@@ -26,14 +26,14 @@ namespace CSVNameProcessorTest
             //---------------Set up test pack-------------------
 
             ProcessAddress processAddress = new ProcessAddress();
-            processAddress._addressBooks = _readExcel.GetDataRows();
+            processAddress.AddressBooks = _readExcel.GetDataRows();
             //---------------Assert Precondition----------------
 
             //---------------Execute Test ----------------------
             processAddress.SortAddress();
             //---------------Test Result -----------------------
-            StringAssert.AreEqualIgnoringCase("AgriSETA House 529 Belvedere Road Arcadia 0083", processAddress._address[0]);
-            StringAssert.AreEqualIgnoringCase("12th Floor Durban Bay House 333 Smith Street Durban", processAddress._address[1]);
+            StringAssert.AreEqualIgnoringCase("AgriSETA House 529 Belvedere Road Arcadia 0083", processAddress.Address[0]);
+            StringAssert.AreEqualIgnoringCase("12th Floor Durban Bay House 333 Smith Street Durban", processAddress.Address[1]);
 
         }
     }

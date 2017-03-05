@@ -16,11 +16,11 @@ namespace CSVNameProcessor
         void ProcessWordFrequency();
         void LoadSettings();
         Settings Settings { get; set; }
-        IReadExcel _readExcel { get; set; }
+        IReadExcel ReadExcel { get; set; }
         void ReadDataRows();
-        List<AddressBook> _addressBooks { get; set; }
+        List<AddressBook> AddressBooks { get; set; }
         List<WordStats> WordStats { get; set; }
-        List<string> _address { get; set; }
+        List<string> Address { get; set; }
         void SortAddress();
         void WriteOutputToFile();
     }
@@ -29,22 +29,22 @@ namespace CSVNameProcessor
     {
         private readonly IProcessWordStats _processWordStats;
         private readonly IProcessAddress _processAddress;
-        private readonly IWriteOutput writeOutput;
+        private readonly IWriteOutput _writeOutput;
 
-        public List<AddressBook> _addressBooks { get; set; }
+        public List<AddressBook> AddressBooks { get; set; }
         public Settings Settings { get; set; }
-        public IReadExcel _readExcel { get; set; }
+        public IReadExcel ReadExcel { get; set; }
         public List<WordStats> WordStats { get; set; }
-        public List<string> _address { get; set; }
+        public List<string> Address { get; set; }
 
         public MainClass(IReadExcel readExcel, IProcessWordStats processWordStats, IProcessAddress processAddress, IWriteOutput writeOutput)
         {
-            _readExcel = readExcel;
+            ReadExcel = readExcel;
             _processWordStats = processWordStats;
             _processAddress = processAddress;
-            this.writeOutput = writeOutput;
+            this._writeOutput = writeOutput;
 
-            if (_readExcel == null)
+            if (ReadExcel == null)
                 throw new ArgumentNullException("ReadExcel");
             if (_processWordStats == null)
                 throw new ArgumentNullException("ProcessWordStats");
@@ -52,7 +52,7 @@ namespace CSVNameProcessor
             if (_processAddress == null)
                 throw new ArgumentNullException("ProcessAddress");
 
-            if (this.writeOutput == null)
+            if (this._writeOutput == null)
                 throw new ArgumentNullException("WriteOutput");
 
             LoadSettings();
@@ -61,16 +61,16 @@ namespace CSVNameProcessor
 
         public void ReadDataRows()
         {
-            _readExcel.FileName = Settings.InputFile;
-            _addressBooks = _readExcel.GetDataRows();
+            ReadExcel.FileName = Settings.InputFile;
+            AddressBooks = ReadExcel.GetDataRows();
         }
 
 
         public void SortAddress()
         {
-            _processAddress._addressBooks = _addressBooks;
+            _processAddress.AddressBooks = AddressBooks;
             _processAddress.SortAddress();
-            _address = _processAddress._address;
+            Address = _processAddress.Address;
         }
         public void LoadSettings()
         {
@@ -83,30 +83,30 @@ namespace CSVNameProcessor
 
         public void ProcessWordFrequency()
         {
-            _processWordStats.AddressBooks = _addressBooks;
+            _processWordStats.AddressBooks = AddressBooks;
             _processWordStats.CalculateStats();
             WordStats = _processWordStats.WordStats;
         }
 
         public void WriteOutputToFile()
         {
-            writeOutput.FileName = "Stats.txt";
-            writeOutput.outputFolder = Settings.OutputFolder;
+            _writeOutput.FileName = "Stats.txt";
+            _writeOutput.OutputFolder = Settings.OutputFolder;
             var statsArrayList = ConvertToArrayList(WordStats);
-            writeOutput.lines = statsArrayList;
-            writeOutput.WriteToFile();
+            _writeOutput.Lines = statsArrayList;
+            _writeOutput.WriteToFile();
 
-            writeOutput.FileName = "SortedAddress.txt";
-            writeOutput.lines = _address.ToArray();
-            writeOutput.WriteToFile();
+            _writeOutput.FileName = "SortedAddress.txt";
+            _writeOutput.Lines = Address.ToArray();
+            _writeOutput.WriteToFile();
         }
 
         private string[] ConvertToArrayList(List<WordStats> wordStats)
         {
             List<string> lst = new List<string>();
-            wordStats?.ForEach(delegate (WordStats Stats)
+            wordStats?.ForEach(delegate (WordStats stats)
             {
-                lst.Add(Stats.ToString());
+                lst.Add(stats.ToString());
             });
             return lst.ToArray();
         }

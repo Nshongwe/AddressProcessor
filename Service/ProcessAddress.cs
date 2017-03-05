@@ -9,23 +9,23 @@ namespace Service
 {
     public interface IProcessAddress
     {
-        List<AddressBook> _addressBooks { get; set; }
-        List<string> _address { get; set; }
+        List<AddressBook> AddressBooks { get; set; }
+        List<string> Address { get; set; }
         void SortAddress();
     }
 
     public class ProcessAddress : IProcessAddress
     {
-        public List<AddressBook> _addressBooks { get; set; }
-        public List<string> _address { get; set; }
-        public Dictionary<string, string> _addressDict;
-        List<string> Worddelimiters = new List<string>{ "street","road","rd","str"};
-        char[] delimiters = { ' ' };
+        public List<AddressBook> AddressBooks { get; set; }
+        public List<string> Address { get; set; }
+        public Dictionary<string, string> AddressDict;
+        readonly List<string> _worddelimiters = new List<string>{ "street","road","rd","str"};
+        readonly char[] _delimiters = { ' ' };
 
         public void SortAddress()
         {
-            _addressDict = new Dictionary<string, string>();
-            _addressBooks?.ForEach(delegate(AddressBook addressBook)
+            AddressDict = new Dictionary<string, string>();
+            AddressBooks?.ForEach(delegate(AddressBook addressBook)
             {
                 ExtractStreetName(addressBook.Address.ToLower());
             });
@@ -34,23 +34,23 @@ namespace Service
 
         private void SortAddressDict()
         {
-            var list = _addressDict.Keys.ToList();
+            var list = AddressDict.Keys.ToList();
             list.Sort();
-            List<string> addresslList = list.Select(key => _addressDict[key]).ToList();
-            _address = addresslList;
+            List<string> addresslList = list.Select(key => AddressDict[key]).ToList();
+            Address = addresslList;
         }
 
         private void ExtractStreetName(string address)
         {
-            string[] words = address.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = address.Split(_delimiters, StringSplitOptions.RemoveEmptyEntries);
             string breakword = string.Empty;
 
-            foreach (var wordd in Worddelimiters)
+            foreach (var wordd in _worddelimiters)
             {
                 for (int i =0;i<words.Length;i++)
                 {
                     if (!words[i].Equals(wordd)) continue;
-                    _addressDict.Add(words[i-1], address);
+                    AddressDict.Add(words[i-1], address);
                     breakword = wordd;
                     break;
                 }

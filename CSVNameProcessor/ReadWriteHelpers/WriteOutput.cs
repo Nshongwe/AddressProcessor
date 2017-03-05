@@ -5,22 +5,22 @@ namespace CSVNameProcessor.ReadWriteHelpers
 {
     public interface IWriteOutput
     {
-        string[] lines { get; set; }
+        string[] Lines { get; set; }
         string FileName { get; set; }
-        string outputFolder { get; set; }
+        string OutputFolder { get; set; }
         void WriteToFile();
     }
 
     public class WriteOutput : IWriteOutput
     {
-        public string[] lines { get; set; }
+        public string[] Lines { get; set; }
         public string FileName { get; set; }
-        public string outputFolder { get; set; }
+        public string OutputFolder { get; set; }
         public void WriteToFile()
         {
-            using (StreamWriter outputFile = new StreamWriter(outputFolder + FileName))
+            using (StreamWriter outputFile = new StreamWriter(OutputFolder + FileName))
             {
-                foreach (string line in lines)
+                foreach (string line in Lines)
                 {
                     outputFile.WriteLine(line);
                 }

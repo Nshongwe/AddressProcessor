@@ -18,9 +18,9 @@ namespace CSVNameProcessor
                 _mainClass.LoadSettings();
                 string inputfileLocation = _mainClass.Settings.InputFile;
                 string outputFolder = _mainClass.Settings.OutputFolder;
-                Console.WriteLine($"Please ensure you have the data file and schema.ini in this location {inputfileLocation}, or change the location in web config");
+                Console.WriteLine($"The test data file and schema.ini is located at {inputfileLocation}, \nbut you can change the location in web config.\nThe file format is [Full Name,Address]");
                 Console.WriteLine();
-                Console.WriteLine($"The output files will be located at {outputFolder} or You can change the location to your preferred one in the web config");
+                Console.WriteLine($"The output files will be located at {outputFolder} \nor you can change the location to your preferred one in the web config");
                 Console.WriteLine();
                 Console.WriteLine("Please press 1 to continue 0 to exit");
                 string userInput = Console.ReadLine();
@@ -28,16 +28,16 @@ namespace CSVNameProcessor
                 if (userInput != null && userInput.Equals("1"))
                 {
                     _mainClass.ReadDataRows();
-                    string sheetName = _mainClass._readExcel.GetFirstSheetName;
+                    string sheetName = _mainClass.ReadExcel.GetFirstSheetName;
                     Console.WriteLine($"Sheet Name {sheetName}");
-                    string HeaderNames = _mainClass._readExcel.HeaderNames;
+                    string HeaderNames = _mainClass.ReadExcel.HeaderNames;
                     Console.WriteLine($"Column Names {HeaderNames}");
-                    PrintDataToScreen(_mainClass._addressBooks);
+                    PrintDataToScreen(_mainClass.AddressBooks);
                     Console.WriteLine("Reading.........");
                     _mainClass.ProcessWordFrequency();
                     _mainClass.SortAddress();
                     _mainClass.WriteOutputToFile();
-                    Console.WriteLine("Finished");
+                    Console.WriteLine("Finished, cheers");
                     Console.ReadLine();
                 }
                 else
@@ -47,7 +47,7 @@ namespace CSVNameProcessor
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Oops an Error occurred");
+                Console.WriteLine("Oops an error occurred");
                 Console.ReadLine();
                 //Write exception to log
             }

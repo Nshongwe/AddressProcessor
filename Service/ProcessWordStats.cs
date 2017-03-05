@@ -16,7 +16,7 @@ namespace Service
     {
         public List<AddressBook> AddressBooks { get; set; }
         public List<WordStats> WordStats { get; set; }
-        char[] _delimiters = { ' ' };
+        readonly char[] _delimiters = { ' ' };
 
         public void CalculateStats()
         {

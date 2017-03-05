@@ -24,7 +24,7 @@ namespace CSVNameProcessor.ReadWriteHelpers
         public string HeaderNames { get; set; }
         private string _connectionString;
         private DataTable _dataTable;
-        private string fileExt;
+        private string _fileExt;
 
         public List<AddressBook> GetDataRows()
         {
@@ -45,7 +45,7 @@ namespace CSVNameProcessor.ReadWriteHelpers
                 if (_dataTable != null && _dataTable.Rows.Count > 0)
                 {
                     GetFirstSheetName = _dataTable.Rows[0]["TABLE_NAME"].ToString().Replace("'", "");
-                    if (string.Compare(fileExt, "csv", true) == 0)
+                    if (String.Compare(_fileExt, "csv", StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         GetFirstSheetName = "Address-Book.csv";
                     }
@@ -66,10 +66,8 @@ namespace CSVNameProcessor.ReadWriteHelpers
                 }
                 string selectCmd = string.Format("SELECT * From [" + GetFirstSheetName + "]");
                 var cmd = new OleDbCommand(selectCmd, conn);
-                var da = new OleDbDataAdapter(cmd);
-                da.SelectCommand = cmd;
-                DataTable dt = new DataTable();
-                dt.TableName = GetFirstSheetName;
+                var da = new OleDbDataAdapter(cmd) {SelectCommand = cmd};
+                DataTable dt = new DataTable {TableName = GetFirstSheetName};
                 da.Fill(dt);
 
                 string[] headerNamesArray = HeaderNames.Split(',');
@@ -93,7 +91,7 @@ namespace CSVNameProcessor.ReadWriteHelpers
                     conn.Open();
                 }
                 string selectCmd = string.Format("select * from [{0}]", GetFirstSheetName + "A" + "1" + ":Z" + "1");
-                if (string.Compare(fileExt, "csv", true) == 0)
+                if (String.Compare(_fileExt, "csv", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     selectCmd = string.Format("select * from [{0}]", GetFirstSheetName);
                 }
@@ -114,16 +112,16 @@ namespace CSVNameProcessor.ReadWriteHelpers
         }
         private void CreateConnection()
         {
-            fileExt = GetFileExtension();
-            if (string.Compare(fileExt, "xls", true) == 0)
+            _fileExt = GetFileExtension();
+            if (String.Compare(_fileExt, "xls", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 _connectionString = string.Concat("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=", FileName, ";" + "Extended Properties='Excel 8.0;HDR=YES;'");
             }
-            else if (string.Compare(fileExt, "xlsx", true) == 0)
+            else if (String.Compare(_fileExt, "xlsx", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 _connectionString = string.Concat("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=", FileName, ";" + "Extended Properties='Excel 12.0 Xml;HDR=YES;'");
             }
-            else if (string.Compare(fileExt, "csv", true) == 0)
+            else if (String.Compare(_fileExt, "csv", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 string path = Path.GetDirectoryName(FileName);
                 _connectionString = string.Concat("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=", path, ";Extended Properties=\"Text;Excel 12.0;HDR=No;IMEX=1;FMT=Delimited\"");
